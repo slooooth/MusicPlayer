@@ -10,26 +10,25 @@ namespace MusicPlayer
         static void Main(string[] args)
         {
             Console.Title = "Music Player";
-            //WriteLine("Please enter a directory for your songs");
-            //string songDir = ReadLine();
-            /*
-            var testLocation = @"D:\Downloads\[ontiva.com] Starbound Soundtrack - Menu Theme-tiny.wav";
-            var mp3Player = new Mp3FileReader(@"D:\Downloads\Tristam - Bone Dry [Monstercat Release].mp3");
-            var wavReader = new WaveFileReader(@"D:\Downloads\[ontiva.com] Starbound Soundtrack - Menu Theme-tiny.wav");
-            var flacReader = new AudioFileReader(@"D:\Downloads\Tristam - Bone Dry [Monstercat Release].mp3");
-            var mp3Player2 = new WaveFileReader(testLocation);
-            List<int> four = new List<int>();
-            var waveOut = new WaveOutEvent();
-            waveOut.Init(mp3Player2);
-            waveOut.Play();
-            Console.ReadLine();
-            */
-            string[] fileNames = (Directory.GetFiles(@"D:\LMMS"));
-            Console.WriteLine(fileNames[0]);
-            foreach(string file in fileNames)
+            /* Is able to get all vaild music files from a requested directory
+            string something = Console.ReadLine();
+            string[] files = (Directory.GetFiles(something));
+            List<string> musicFiles = new List<string>();
+            foreach (string file in files)
             {
-                Console.WriteLine(file);
+                if (Path.GetExtension(file) == ".mp3" || Path.GetExtension(file) == ".wav")
+                {
+                    musicFiles.Add(file);
+                    Console.WriteLine(file);
+                }
             }
+            */
+
+            string path = @"D:\Code Testing Files\";
+            string fileName = "test.txt";
+            string fullPath = path + fileName;
+            File.WriteAllText(fullPath, "test");
+            MusicFiles.GetMusicFiles("thing");
 
         }
     }
