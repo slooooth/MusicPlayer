@@ -28,7 +28,7 @@ namespace MusicPlayer
             string fileName = "test.txt";
             string fullPath = path + fileName;
             File.WriteAllText(fullPath, "test");
-            MusicFiles.GetMusicFiles("thing");
+            MusicFiles.GetMusicFiles("test");
 
         }
     }
