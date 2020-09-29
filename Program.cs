@@ -28,8 +28,11 @@ namespace MusicPlayer
             string fileName = "test.txt";
             string fullPath = path + fileName;
             File.WriteAllText(fullPath, "test");
-            MusicFiles.GetMusicFiles("test2");
-
+            List<string> test = MusicFiles.GetMusicFiles(@"D:\Downloads");
+            Console.WriteLine(test);
+            int last = test.Count - 1;
+            Console.WriteLine(test[last]);
+            Console.ReadLine();
         }
     }
 }
