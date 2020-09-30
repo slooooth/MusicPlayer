@@ -8,13 +8,23 @@ namespace MusicPlayer
 {
     class MusicFilePlayer
     {
-        public static void PlayMP3File()
+        public static WaveOutEvent waveOut;
+        public static void PlayMP3File(string file)
         {
-            
-        }
-        public static void PlayWAVFile()
-        { 
+            using (var mp3Reader = new Mp3FileReader(file))
+            {
+                waveOut.Init(mp3Reader);
+                waveOut.Play();
 
+            }
+        }
+        public static void PlayWAVFile(string file)
+        { 
+            using (var wavReader = new WaveFileReader(file))
+            {
+                waveOut.Init(wavReader);
+                waveOut.Play();
+            }
         }
     }
 }
