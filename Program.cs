@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using NAudio.Wave;
 
 namespace MusicPlayer
 {
@@ -23,6 +24,7 @@ namespace MusicPlayer
             Console.WriteLine(test);
             int last = test.Count - 1;
             Console.WriteLine(test[last]);
+            MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");
             Console.ReadLine();
         }
     }
