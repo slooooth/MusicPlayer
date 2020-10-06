@@ -11,12 +11,13 @@ namespace MusicPlayer
         {
             //just titles the console
             Console.Title = "Music Player";
+            Console.WriteLine("Current date and time: " + DateTime.Now);
 
             //random path variables for testing writing to a file
             string path = @"D:\Code Testing Files\";
-            string fileName = "test.txt";
-            string fullPath = path + fileName;
-            File.WriteAllText(fullPath, "test");
+            //string fileName = "test.txt";
+            //string fullPath = path + fileName;
+            //File.WriteAllText(fullPath, "test");
 
             //calls the function to get all valid music files from a requested directory (also a test with classes)
             List<string> test = MusicFiles.GetMusicFiles(@"D:\Downloads");
