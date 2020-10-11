@@ -11,7 +11,7 @@ namespace MusicPlayer
         {
             //just titles the console
             Console.Title = "Music Player";
-            Console.WriteLine("Current date and time: " + DateTime.Now);
+            Console.WriteLine("Current date and time:" + " " + DateTime.Now);
 
             //random path variables for testing writing to a file
             string path = @"D:\Code Testing Files\";

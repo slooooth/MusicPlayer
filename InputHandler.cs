@@ -11,5 +11,21 @@ namespace MusicPlayer
         {
             return Console.ReadLine();
         }
+        public static void ExecuteInput(string input)
+        {
+            string[] splitInput = input.Split(" ");
+            switch (splitInput[0])
+            {
+                case "skip":
+                    Console.WriteLine("Skip Called");
+                    break;
+
+                case "stop":
+                    Console.WriteLine("Stop Called");
+                    break;
+
+
+            }
+        }
     }
 }
