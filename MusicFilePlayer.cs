@@ -23,11 +23,7 @@ namespace MusicPlayer
                 if (userInput != null && userInput != "" && userInput != " ")
                 {
                     break;
-                } else
-                {
-
                 }
-
             }
             Console.WriteLine("finished");
             waveOut.Stop();
