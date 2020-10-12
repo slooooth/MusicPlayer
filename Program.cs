@@ -28,11 +28,13 @@ namespace MusicPlayer
             {
                 test = MusicFiles.GetMusicFiles(@"D:\Downloads");
             }
+            //catches an exception where the file path is not vaild
             catch (System.IO.DirectoryNotFoundException)
             {
                 Console.WriteLine("Not a vaild directory. Please try again");
                 return;
             }
+            //catches all other exceptions
             catch (Exception x)
             {
                 Console.WriteLine("An unanticipated error occured");
