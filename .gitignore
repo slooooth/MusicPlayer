@@ -8,6 +8,12 @@ bin/
 obj/
 sdk/
 templates/
+packs/
+shared/
+host/
+dotnet.exe
+LICENSE.txt
+ThirdPartyNotices.txt
 
 # User-specific files
 *.rsuser
