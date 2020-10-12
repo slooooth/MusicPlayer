@@ -8,6 +8,8 @@ namespace MusicPlayer
 {
     class MusicFilePlayer
     {
+        //WIP: Trying to find a way to make the waveOut variable usable in the whole class, rather than just in a single function
+
         //will play a requested MP3 file
         public static void PlayMP3File(string file)
         {

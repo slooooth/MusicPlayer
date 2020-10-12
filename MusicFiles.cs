@@ -27,6 +27,10 @@ namespace MusicPlayer
                     x = x + 1;
                 }
             }
+            if (musicFiles.Count == 0)
+            {
+                Console.WriteLine("No music files found");
+            }
             //this function returns a list of usable music files in the requested directory
             return musicFiles;
 
