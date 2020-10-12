@@ -21,7 +21,7 @@ namespace MusicPlayer
             {
                 string userInput = InputHandler.GetInput();
                 Console.WriteLine(userInput);
-                if (userInput != null && userInput[0] != " ")
+                if (userInput != null && userInput != " ")
                 {
                     break;
                 }
@@ -42,7 +42,7 @@ namespace MusicPlayer
             {
                 string userInput = InputHandler.GetInput();
                 Console.WriteLine(userInput);
-                if(userInput != null && userInput[0 != " "])
+                if(userInput != null && userInput != " ")
                 {
                     break;
                 }
