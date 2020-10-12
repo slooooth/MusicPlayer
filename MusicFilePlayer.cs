@@ -8,13 +8,12 @@ namespace MusicPlayer
 {
     class MusicFilePlayer
     {
-        //WIP: Trying to find a way to make the waveOut variable usable in the whole class, rather than just in a single function
+        public static WaveOutEvent waveOut = new WaveOutEvent();
 
         //will play a requested MP3 file
         public static void PlayMP3File(string file)
         {
             var mp3Reader = new Mp3FileReader(file);
-            var waveOut = new WaveOutEvent();
             waveOut.Init(mp3Reader);
             waveOut.Play();
             //Console.ReadLine();
@@ -22,7 +21,7 @@ namespace MusicPlayer
             {
                 string userInput = InputHandler.GetInput();
                 Console.WriteLine(userInput);
-                if (userInput != null && userInput != "" && userInput != " ")
+                if (userInput != null && userInput[0] != " ")
                 {
                     break;
                 }
@@ -36,12 +35,25 @@ namespace MusicPlayer
         //WIP: will play a requested WAV file
         public static void PlayWAVFile(string file)
         { 
-            using (var wavReader = new WaveFileReader(file))
+            var wavReader = new WaveFileReader(file);
+            waveOut.Init(wavReader);
+            waveOut.Play();
+            while(wavReader.CurrentTime != wavReader.TotalTime)
             {
-                var waveOut = new WaveOutEvent();
-                waveOut.Init(wavReader);
-                waveOut.Play();
+                string userInput = InputHandler.GetInput();
+                Console.WriteLine(userInput);
+                if(userInput != null && userInput[0 != " "])
+                {
+                    break;
+                }
             }
+            Console.WriteLine("finished");
+            waveOut.Stop();
+        }
+        
+        public static void StopPlaying()
+        {
+            waveOut.Stop();
         }
     }
 }

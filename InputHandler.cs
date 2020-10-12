@@ -24,7 +24,7 @@ namespace MusicPlayer
                     break;
 
                 case "stop":
-                    Console.WriteLine("Stop Called");
+                    MusicFilePlayer.StopPlaying();
                     break;
 
 

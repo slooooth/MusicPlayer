@@ -31,6 +31,7 @@ namespace MusicPlayer
             //testing code
             MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");
             Console.ReadLine();
+            
         }
     }
 }
