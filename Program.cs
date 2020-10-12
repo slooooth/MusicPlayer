@@ -20,8 +20,27 @@ namespace MusicPlayer
             //string fullPath = path + fileName;
             //File.WriteAllText(fullPath, "test");
 
-            List<string> test = MusicFiles.GetMusicFiles(@"D:\Downloads");
-            //calls the function to get all valid music files from a requested directory
+            //declares a variable list
+            List<string> test = new List<string>();
+            
+            //attemts to see if a directory exists. if not, program exits
+            try 
+            {
+                test = MusicFiles.GetMusicFiles(@"D:\Downloads");
+            }
+            catch (System.IO.DirectoryNotFoundException)
+            {
+                Console.WriteLine("Not a vaild directory. Please try again");
+                return;
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine("An unanticipated error occured");
+                Console.WriteLine("Error: " + x);
+                return;
+            }
+
+
             if (test.Count != 0)
             {
                 Console.WriteLine(test);
