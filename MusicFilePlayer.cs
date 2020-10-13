@@ -19,12 +19,7 @@ namespace MusicPlayer
             //Console.ReadLine();
             while(mp3Reader.CurrentTime != mp3Reader.TotalTime)
             {
-                string userInput = InputHandler.GetInput();
-                Console.WriteLine(userInput);
-                if (userInput != null && userInput != " ")
-                {
-                    break;
-                }
+                
             }
             Console.WriteLine("finished");
             waveOut.Stop();

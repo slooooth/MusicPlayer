@@ -7,6 +7,7 @@ namespace MusicPlayer
 {
     class Program
     {
+        //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
             //just titles the console
@@ -29,7 +30,7 @@ namespace MusicPlayer
                 test = MusicFiles.GetMusicFiles(@"D:\Downloads");
             }
             //catches an exception where the file path is not vaild
-            catch (System.IO.DirectoryNotFoundException)
+            catch (DirectoryNotFoundException)
             {
                 Console.WriteLine("Not a vaild directory. Please try again");
                 return;
