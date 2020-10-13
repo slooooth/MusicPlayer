@@ -22,38 +22,11 @@ namespace MusicPlayer
             //File.WriteAllText(fullPath, "test");
 
             //declares a variable list
-            List<string> test = new List<string>();
-            
-            //attemts to see if a directory exists. if not, program exits
-            try 
-            {
-                test = MusicFiles.GetMusicFiles(@"D:\Downloads");
-            }
-            //catches an exception where the file path is not vaild
-            catch (DirectoryNotFoundException)
-            {
-                Console.WriteLine("Not a vaild directory. Please try again");
-                return;
-            }
-            //catches all other exceptions
-            catch (Exception x)
-            {
-                Console.WriteLine("An unanticipated error occured");
-                Console.WriteLine("Error: " + x);
-                return;
-            }
-
-
-            if (test.Count != 0)
-            {
-                Console.WriteLine(test);
-                int last = test.Count - 1;
-                Console.WriteLine(test[last]);
-            }
+            InputHandler.GetDirectory();
             //testing code
             MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");
             Console.ReadLine();
-            
+        
         }
     }
 }

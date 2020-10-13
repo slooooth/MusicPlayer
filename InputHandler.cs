@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace MusicPlayer
 {
@@ -28,6 +29,29 @@ namespace MusicPlayer
                     break;
 
 
+            }
+        }
+
+        //only should be used for init/setting up a new environment
+        public static string GetDirectory()
+        {
+            Console.WriteLine("Please enter a directory: ");
+            string inputDirectory = Console.ReadLine();
+            if(Directory.Exists(inputDirectory) == true)
+            {
+                return inputDirectory;
+            }
+            else if(Directory.Exists(inputDirectory) == false)
+            {
+                Console.WriteLine("not a vaild directory on this machine");
+                GetDirectory();
+                return null;
+            }
+            else
+            {
+                Console.WriteLine("unknown error occured");
+                GetDirectory();
+                return null;
             }
         }
     }
