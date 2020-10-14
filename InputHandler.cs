@@ -48,23 +48,26 @@ namespace MusicPlayer
         public static string GetDirectory()
         {
             Console.WriteLine("Please enter a directory: ");
-            string inputDirectory = Console.ReadLine();
-            if(Directory.Exists(inputDirectory) == true)
+            string inputDirectory = null;
+            while(Directory.Exists(inputDirectory) == false)
             {
-                return inputDirectory;
+                inputDirectory = Console.ReadLine();
+                if(Directory.Exists(inputDirectory) == true)
+                {
+                    return inputDirectory;
+                }
+                else if(Directory.Exists(inputDirectory) == false)
+                {
+                    Console.WriteLine("not a vaild directory on this machine");
+                    Console.WriteLine("Please enter a directory: ");
+                }
+                else
+                {
+                    Console.WriteLine("unknown error occured");
+                    Console.WriteLine("Please enter a directory: ");
+                }
             }
-            else if(Directory.Exists(inputDirectory) == false)
-            {
-                Console.WriteLine("not a vaild directory on this machine");
-                GetDirectory();
-                return null;
-            }
-            else
-            {
-                Console.WriteLine("unknown error occured");
-                GetDirectory();
-                return null;
-            }
+            return inputDirectory;
         }
     }
 }

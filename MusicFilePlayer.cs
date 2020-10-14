@@ -66,14 +66,14 @@ namespace MusicPlayer
                 {
                     PlayMP3File(file);
                 }
-                else if (fileExtension == ".wav");
+                else if (fileExtension == ".wav")
                 {
                     PlayWAVFile(file);
                 }
             }
             catch
             {
-
+                Console.WriteLine("An error occured while attempting to play that file");
             }
         }
     }

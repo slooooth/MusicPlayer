@@ -14,6 +14,8 @@ host/
 dotnet.exe
 LICENSE.txt
 ThirdPartyNotices.txt
+## ignores some code files for Visal Studio Code users
+.vscode/
 
 # User-specific files
 *.rsuser
