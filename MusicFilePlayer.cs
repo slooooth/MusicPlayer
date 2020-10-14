@@ -19,7 +19,7 @@ namespace MusicPlayer
             //Console.ReadLine();
             while(mp3Reader.CurrentTime != mp3Reader.TotalTime)
             {
-                Console.SetCursorPosition(0);
+                Console.SetCursorPosition(0,Console.CursorTop);
                 Console.Write(mp3Reader.CurrentTime + " / " + mp3Reader.TotalTime);
             }
             Console.WriteLine("finished");
