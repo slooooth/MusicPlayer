@@ -18,8 +18,8 @@ namespace MusicPlayer
             //splits the string given to the function every time there is a space
             string[] splitInput = input.Split(" ");
             string command = splitInput[0];
-            string[splitInput - 1] args;
-            for(x = 0; x <=(splitInput.Length-1); x=x+1)
+            string[] args = new string[splitInput.Length - 1];
+            for(int x = 0; x <=(splitInput.Length-1); x=x+1)
             {
                 args[x] = splitInput[x+1];
             }
