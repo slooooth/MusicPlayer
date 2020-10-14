@@ -19,7 +19,7 @@ namespace MusicPlayer
             string[] splitInput = input.Split(" ");
             string command = splitInput[0];
             string[] args = new string[splitInput.Length - 1];
-            for(int x = 0; x <=(splitInput.Length-1); x=x+1)
+            for(int x = 0; x <=(splitInput.Length-1); x++)
             {
                 args[x] = splitInput[x+1];
             }
