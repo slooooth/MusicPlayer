@@ -20,7 +20,7 @@ namespace MusicPlayer
             while(mp3Reader.CurrentTime != mp3Reader.TotalTime)
             {
                 Console.SetCursorPosition(0,Console.CursorTop);
-                Console.Write($"{mp3reader.CurrentTime}ms / {mp3Reader.TotalTime}ms");
+                Console.Write($"{mp3Reader.CurrentTime}ms / {mp3Reader.TotalTime}ms");
 
                 /*should support decimal percentages. Not sure how to round to even percentages though
                 double percentComplete = Math.Round((mp3Reader.CurrentTime/mp3Reader.TotalTime)*100, 3);
@@ -57,5 +57,23 @@ namespace MusicPlayer
         {
             waveOut.Stop();
         }
-    }
+        public static void PlayFile(string file)
+        {
+            try
+            {
+                string fileExtension = Path.GetExtension(file);
+                if(fileExtension == ".mp3")
+                {
+                    PlayMP3File(file);
+                }
+                else if (fileExtension == ".wav");
+                {
+                    PlayWAVFile(file);
+                }
+            }
+            catch
+            {
+
+            }
+        }
 }

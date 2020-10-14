@@ -27,11 +27,16 @@ namespace MusicPlayer
                 case "stop":
                     MusicFilePlayer.StopPlaying();
                     break;
-
+                case "play":
+                    MusicFilePlayer.PlayFile(splitInput[1]);
+                    break;
+                case "help":
+                
+                    break;
 
             }
         }
-        
+
         //only should be used for init/setting up a new environment
         public static string GetDirectory()
         {
