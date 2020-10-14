@@ -31,7 +31,7 @@ namespace MusicPlayer
 
             }
         }
-
+        
         //only should be used for init/setting up a new environment
         public static string GetDirectory()
         {

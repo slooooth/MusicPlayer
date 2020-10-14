@@ -7,9 +7,9 @@ namespace MusicPlayer
 {
     class MusicFiles
     {
+        //gets all the files from a requested directory (not sure if this works for all drives. possible it doesn't work for networked drives)
         public static List<string> GetMusicFiles(string filePath)
         {
-            //gets all the files from a requested directory
             //NOTE: currently bugged. Last console line written will display a weird....reference? although it does not seem to be included in the list
             string[] files = (Directory.GetFiles(filePath));
             List<string> musicFiles = new List<string>();
