@@ -24,7 +24,14 @@ namespace MusicPlayer
             //declares a variable list
             InputHandler.GetDirectory();
             //testing code
-            MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");
+            try
+            {
+                MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");
+            }
+            catch
+            {
+                Console.WriteLine("Not a valid directory");
+            }
             Console.ReadLine();
         
         }
