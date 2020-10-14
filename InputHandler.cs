@@ -17,6 +17,12 @@ namespace MusicPlayer
         {
             //splits the string given to the function every time there is a space
             string[] splitInput = input.Split(" ");
+            string command = splitInput[0];
+            string[splitInput - 1] args;
+            for(x = 0; x <=(splitInput.Length-1); x=x+1)
+            {
+                args[x] = splitInput[x+1];
+            }
             switch (splitInput[0])
             {
                 //
@@ -28,11 +34,12 @@ namespace MusicPlayer
                     MusicFilePlayer.StopPlaying();
                     break;
                 case "play":
-                    MusicFilePlayer.PlayFile(splitInput[1]);
+                    MusicFilePlayer.PlayFile(args[0]);
                     break;
                 case "help":
-                
+                    
                     break;
+                
 
             }
         }
