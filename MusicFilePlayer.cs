@@ -17,15 +17,21 @@ namespace MusicPlayer
             waveOut.Init(mp3Reader);
             waveOut.Play();
             //Console.ReadLine();
-            while(mp3Reader.CurrentTime != mp3Reader.TotalTime)
+            double lastPercentComplete = 0;
+            while (mp3Reader.CurrentTime != mp3Reader.TotalTime)
             {
-                Console.SetCursorPosition(0,Console.CursorTop);
-                Console.Write($"{mp3Reader.CurrentTime}ms / {mp3Reader.TotalTime}ms");
+                //ms version
+                //Console.Write($"{mp3Reader.CurrentTime}ms / {mp3Reader.TotalTime}ms");
 
-                /*should support decimal percentages. Not sure how to round to even percentages though
-                double percentComplete = Math.Round((mp3Reader.CurrentTime/mp3Reader.TotalTime)*100, 3);
-                Console.Write(percentComplete + "%");
-                */
+                //percentage version
+                double percentComplete = Math.Round((mp3Reader.CurrentTime/mp3Reader.TotalTime)*100, 0);
+                if(percentComplete != lastPercentComplete)
+                {
+                    lastPercentComplete = percentComplete;
+                    Console.SetCursorPosition(0, Console.CursorTop);
+                    Console.Write(percentComplete + "%");
+                }
+                
             }
             Console.WriteLine("finished");
             waveOut.Stop();
