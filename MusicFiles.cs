@@ -7,7 +7,7 @@ namespace MusicPlayer
 {
     class MusicFiles
     {
-        //gets all the files from a requested directory (not sure if this works for all drives. possible it doesn't work for networked drives)
+        //gets all the files from a requested directory
         public static List<string> GetMusicFiles(string filePath)
         {
             //NOTE: currently bugged. Last console line written will display a weird....reference? although it does not seem to be included in the list
