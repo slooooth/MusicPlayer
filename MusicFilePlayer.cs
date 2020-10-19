@@ -57,17 +57,6 @@ namespace MusicPlayer
             Console.WriteLine("finished");
             waveOut.Stop();
         }
-        public static void PlayMusicFile(string file)
-        {
-            if(Path.GetExtension(file) == ".mp3")
-            {
-                PlayMP3File(file);
-            } 
-            else if (Path.GetExtension(file) == ".wav")
-            {
-                PlayWAVFile(file);
-            }
-        }
         
         //makes the output device stop playing whatever it's playing
         public static void StopPlaying()
@@ -92,6 +81,11 @@ namespace MusicPlayer
             {
                 Console.WriteLine("An error occured while attempting to play that file");
             }
+        }
+        public static void SkipTrack() //
+        {
+            waveOut.StopPlaying();
+
         }
     }
 }
