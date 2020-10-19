@@ -51,6 +51,14 @@ namespace MusicPlayer
                             Console.WriteLine("Stops the music playing");
                             Console.WriteLine("options: none");
                             break;
+                            case "playlist":
+                            Console.WriteLine("playlists allow you to group different tracks together");
+                            Console.WriteLine("Options:");
+                            Console.WriteLine("new - creates a new playlist");
+                            Console.WriteLine("del - deletes a playlist");
+                            Console.WriteLine("add - adds a specified track to a playlist");
+                            Console.WriteLine("rm - removes a track from a playlist");
+                            
                         }
                     }
                     break;
