@@ -21,7 +21,7 @@ namespace MusicPlayer
             //string fullPath = path + fileName;
             //File.WriteAllText(fullPath, "test");
 
-            InputHandler.GetDirectory();
+            MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
             //testing code
             try
             {

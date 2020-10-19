@@ -23,21 +23,39 @@ namespace MusicPlayer
             {
                 args[x] = splitInput[x+1];
             }
-            switch (splitInput[0])
+            switch (command)
             {
-                //
                 case "skip":
-                    Console.WriteLine("Skip Called");
+                    MusicFilePlayer.SkipTrack();
                     break;
 
                 case "stop":
                     MusicFilePlayer.StopPlaying();
                     break;
+
                 case "play":
                     MusicFilePlayer.PlayFile(args[0]);
                     break;
+
                 case "help":
-                    
+                    if (args.Length == 0)
+                    {
+                        Console.WriteLine("This is the help menu");
+                        Console.WriteLine("usage: command [options]");
+                    }
+                    else
+                    {
+                        switch(args[0])
+                        {
+                            case "stop":
+                            Console.WriteLine("Stops the music playing");
+                            Console.WriteLine("options: none");
+                            break;
+                        }
+                    }
+                    break;
+
+                case "playlist":
                     break;
                 
 

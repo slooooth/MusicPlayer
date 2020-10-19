@@ -11,7 +11,7 @@ namespace MusicPlayer
         public static WaveOutEvent waveOut = new WaveOutEvent();
 
         //will play a requested MP3 file
-        public static void PlayMP3File(string file)
+        public static void PlayMP3File(string file) //a function for playing .mp3 files
         {
             var mp3Reader = new Mp3FileReader(file);
             waveOut.Init(mp3Reader);
@@ -40,7 +40,7 @@ namespace MusicPlayer
         }
 
         //will play a requested WAV file (untested)
-        public static void PlayWAVFile(string file)
+        public static void PlayWAVFile(string file) //a function to playing .wav files
         { 
             var wavReader = new WaveFileReader(file);
             waveOut.Init(wavReader);
@@ -57,9 +57,8 @@ namespace MusicPlayer
             Console.WriteLine("finished");
             waveOut.Stop();
         }
-        
-        //makes the output device stop playing whatever it's playing
-        public static void StopPlaying()
+    
+        public static void StopPlaying() //makes the output device stop playing whatever it's playing
         {
             waveOut.Stop();
         }
@@ -84,7 +83,7 @@ namespace MusicPlayer
         }
         public static void SkipTrack() //
         {
-            waveOut.StopPlaying();
+            waveOut.Stop();
 
         }
     }
