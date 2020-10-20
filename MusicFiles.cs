@@ -37,10 +37,12 @@ namespace MusicPlayer
         }
         public static void PlaylistManager(string[] actions)
         {
+            string playlistName = actions[1];
             switch(actions[0])
             {
                 case "new":
-                    string playlistName = actions[1];
+                    StreamWriter writer = new StreamWriter(Program.MainFilePath);
+
                     break;
                 case "del":
                     break;
