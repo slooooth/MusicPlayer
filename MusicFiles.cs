@@ -35,5 +35,20 @@ namespace MusicPlayer
             return musicFiles;
 
         }
+        public static void PlaylistManager(string[] actions)
+        {
+            switch(actions[0])
+            {
+                case "new":
+                    string playlistName = actions[1];
+                    break;
+                case "del":
+                    break;
+                case "add":
+                    break;
+                case "rm":
+                    break;
+            }
+        }
     }
 }

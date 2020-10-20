@@ -41,7 +41,7 @@ namespace MusicPlayer
                     if (args.Length == 0)
                     {
                         Console.WriteLine("This is the help menu");
-                        Console.WriteLine("usage: command [options]");
+                        Console.WriteLine("usage: command [options] [arguments]");
                     }
                     else
                     {
@@ -56,14 +56,16 @@ namespace MusicPlayer
                             Console.WriteLine("Options:");
                             Console.WriteLine("new - creates a new playlist");
                             Console.WriteLine("del - deletes a playlist");
-                            Console.WriteLine("add - adds a specified track to a playlist");
-                            Console.WriteLine("rm - removes a track from a playlist");
-                            
+                            Console.WriteLine("add - adds a specified track to a playlist, args - path of track to be added");
+                            Console.WriteLine("rm - removes a track from a playlist, args - select track to be removed");
+                            break;
+
                         }
                     }
                     break;
 
                 case "playlist":
+                    MusicFiles.PlaylistManager(args);
                     break;
                 
 
