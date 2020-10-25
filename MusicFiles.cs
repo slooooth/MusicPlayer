@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace MusicPlayer
 {
@@ -46,9 +48,12 @@ namespace MusicPlayer
                     writer.WriteLine($"<<{playlistName}>>:");
                     break;
                 case "del":
+                    //List<string> allLines = new List<string>();
+                    //allLines = File.ReadAllLines(Program.MainFilePath).ToList();
+                    //writer
                     break;
                 case "add":
-                    break;
+                    break; 
                 case "rm":
                     break;
             }
