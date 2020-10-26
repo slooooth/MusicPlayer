@@ -8,7 +8,7 @@ namespace MusicPlayer
 {
     class MusicFilePlayer
     {
-        //static reference to the output device on the computer
+        //static reference to the output device on the machine
         public static WaveOutEvent waveOut = new WaveOutEvent();
 
         //will play a requested MP3 file
@@ -63,7 +63,8 @@ namespace MusicPlayer
         {
             waveOut.Stop();
         }
-        public static void PlayFile(string file) //a more flexible play file system that can offload picking what type of player to use from the caller
+        
+        public static void PlayFile(string file) //a more flexible play file function that can offload picking what type of player to use from the caller
         {
             try
             {

@@ -4,3 +4,4 @@ The end goal of this project is to create a console-based music player for mysel
 I figured this was a good place to start teaching myself. Expect this to take some time to be finished if you're actually looking for a working program
 
 Using C# with .NET Core 3.1
+Also using XML for basic data storage

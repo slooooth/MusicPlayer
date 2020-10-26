@@ -37,7 +37,7 @@ namespace MusicPlayer
 
         }
 
-        //function that can be called to work with playlists residing in XML file
+        //function that can be called to work with playlists residing in XML file (unfinished)
         public static void PlaylistManager(string[] actions)
         {
             string playlistName = actions[1];
