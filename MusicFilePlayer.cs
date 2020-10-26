@@ -8,10 +8,11 @@ namespace MusicPlayer
 {
     class MusicFilePlayer
     {
+        //static reference to the output device on the computer
         public static WaveOutEvent waveOut = new WaveOutEvent();
 
         //will play a requested MP3 file
-        public static void PlayMP3File(string file) //a function for playing .mp3 files
+        public static void PlayMP3File(string file)
         {
             var mp3Reader = new Mp3FileReader(file);
             waveOut.Init(mp3Reader);
@@ -40,7 +41,7 @@ namespace MusicPlayer
         }
 
         //will play a requested WAV file (untested)
-        public static void PlayWAVFile(string file) //a function to playing .wav files
+        public static void PlayWAVFile(string file)
         { 
             var wavReader = new WaveFileReader(file);
             waveOut.Init(wavReader);
@@ -62,7 +63,7 @@ namespace MusicPlayer
         {
             waveOut.Stop();
         }
-        public static void PlayFile(string file)
+        public static void PlayFile(string file) //a more flexible play file system that can offload picking what type of player to use from the caller
         {
             try
             {
@@ -78,10 +79,10 @@ namespace MusicPlayer
             }
             catch
             {
-                Console.WriteLine("An error occured while attempting to play that file");
+                Console.WriteLine("An error occured while attempting to play that file. Likely an invalid file type");
             }
         }
-        public static void SkipTrack() //
+        public static void SkipTrack() //will skip the track playing
         {
             waveOut.Stop();
 

@@ -13,6 +13,7 @@ namespace MusicPlayer
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
+            Console.WriteLine("<TESTING>");
             XDocument tester = XDocument.Load(MainFilePath);
             IEnumerable<XElement> employees = tester.Root.Elements();
             Console.WriteLine("Employee Names: ");
@@ -20,13 +21,13 @@ namespace MusicPlayer
             {
                 Console.WriteLine(employee.Element("Name").Value);
             }
+            Console.WriteLine("</TESTING>");
 
 
 
 
-            //just titles the console
+            //basic console setup
             Console.Title = "Music Player";
-            //Writes the time and date
             Console.WriteLine("Current date and time:" + " " + DateTime.Now);
 
             //random path variables for testing writing to a file
@@ -36,7 +37,7 @@ namespace MusicPlayer
             //File.WriteAllText(fullPath, "test");
 
             MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
-            //testing code
+            //attempt to play a file (It's on my local PC so likely won't exist on other machines)
             try
             {
                 MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");

@@ -33,24 +33,19 @@ namespace MusicPlayer
             {
                 Console.WriteLine("No music files found");
             }
-            //this function returns a list of usable music files in the requested directory
             return musicFiles;
 
         }
+
+        //function that can be called to work with playlists residing in XML file
         public static void PlaylistManager(string[] actions)
         {
-            StreamWriter writer = new StreamWriter(Program.MainFilePath);
-            StreamReader reader = new StreamReader(Program.MainFilePath);
             string playlistName = actions[1];
             switch(actions[0])
             {
                 case "new":
-                    writer.WriteLine($"<<{playlistName}>>:");
                     break;
                 case "del":
-                    //List<string> allLines = new List<string>();
-                    //allLines = File.ReadAllLines(Program.MainFilePath).ToList();
-                    //writer
                     break;
                 case "add":
                     break; 
