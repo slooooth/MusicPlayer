@@ -9,10 +9,31 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\test.xml"; 
+        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\helpme.xml"; 
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
+            try
+            {
+                if(File.Exists(MainFilePath) == false)
+                {
+                    throw new FileNotFoundException("That file does not exist");
+                }
+                Console.WriteLine("file found");
+            }
+            catch (FileNotFoundException)
+            {
+                
+                //File.Create(MainFilePath);
+                Console.WriteLine("file created");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Unknown exception. Execution stopping");
+                Console.WriteLine(e);
+                return;
+            }
+            /*
             Console.WriteLine("<TESTING>");
             XDocument tester = XDocument.Load(MainFilePath);
             IEnumerable<XElement> employees = tester.Root.Elements();
@@ -22,6 +43,7 @@ namespace MusicPlayer
                 Console.WriteLine(employee.Element("Name").Value);
             }
             Console.WriteLine("</TESTING>");
+            */
 
 
 
