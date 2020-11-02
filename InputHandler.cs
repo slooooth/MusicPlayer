@@ -56,10 +56,11 @@ namespace MusicPlayer
                             case "playlist":
                             Console.WriteLine("playlists allow you to group different tracks together");
                             Console.WriteLine("Options:");
-                            Console.WriteLine("new - creates a new playlist");
-                            Console.WriteLine("del - deletes a playlist");
-                            Console.WriteLine("add - adds a specified track to a playlist, args - path of track to be added");
-                            Console.WriteLine("rm - removes a track from a playlist, args - select track to be removed");
+                            Console.WriteLine("new - creates a new playlist, args - playlist name to be created");
+                            Console.WriteLine("del - deletes a playlist, args - playlist name to remove");
+                            Console.WriteLine("add - adds a specified track to a playlist, args - playlist to add track to, path of track to be added");
+                            Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
+                            Console.WriteLine("list or nothing - lists all availible playlists, args - none");
                             break;
 
                         }
