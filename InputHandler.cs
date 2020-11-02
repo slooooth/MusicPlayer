@@ -74,7 +74,7 @@ namespace MusicPlayer
             }
         }
 
-        //only should be used for init/setting up a new environment
+        //only should be used for init/setting up a new environment, as execution cannot be stopped until a vaild directory is given
         public static string GetDirectory()
         {
             Console.WriteLine("Please enter a directory: ");
@@ -82,18 +82,9 @@ namespace MusicPlayer
             while(Directory.Exists(inputDirectory) == false)
             {
                 inputDirectory = Console.ReadLine();
-                if(Directory.Exists(inputDirectory) == true)
-                {
-                    return inputDirectory;
-                }
-                else if(Directory.Exists(inputDirectory) == false)
+                if(Directory.Exists(inputDirectory) == false)
                 {
                     Console.WriteLine("not a vaild directory on this machine");
-                    Console.WriteLine("Please enter a directory: ");
-                }
-                else
-                {
-                    Console.WriteLine("unknown error occured");
                     Console.WriteLine("Please enter a directory: ");
                 }
             }

@@ -9,7 +9,7 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\helpme.xml"; 
+        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\test23.xml"; 
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
@@ -24,7 +24,7 @@ namespace MusicPlayer
             catch (FileNotFoundException)
             {
                 
-                //File.Create(MainFilePath);
+                File.Create(MainFilePath);
                 Console.WriteLine("file created");
             }
             catch (Exception e)
