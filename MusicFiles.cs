@@ -51,6 +51,9 @@ namespace MusicPlayer
                     break; 
                 case "rm":
                     break;
+                default:
+                    Console.WriteLine("not a vaild option");
+                    break;
             }
         }
     }

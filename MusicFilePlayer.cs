@@ -63,7 +63,6 @@ namespace MusicPlayer
         {
             waveOut.Stop();
         }
-        
         public static void PlayFile(string file) //a more flexible play file function that can offload picking what type of player to use from the caller
         {
             try

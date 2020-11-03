@@ -62,7 +62,12 @@ namespace MusicPlayer
                             Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
                             Console.WriteLine("list or nothing - lists all availible playlists, args - none");
                             break;
-
+                            case "play":
+                            Console.WriteLine("plays either a given track or a playlist");
+                            Console.WriteLine("options:");
+                            Console.WriteLine("track - plays a specific track, args - the name of a track OR the track file path");
+                            Console.WriteLine("playlist - plays a specific playlist, args - track name or number in playlist. If left blank, plays the first song");
+                            break;
                         }
                     }
                     break;
