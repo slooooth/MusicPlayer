@@ -13,6 +13,8 @@ namespace MusicPlayer
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
+
+            //<XML testing>
             try
             {
                 if(File.Exists(MainFilePath) == false)
@@ -37,20 +39,7 @@ namespace MusicPlayer
                 Console.WriteLine(e);
                 return;
             }
-            /*
-            Console.WriteLine("<TESTING>");
-            XDocument tester = XDocument.Load(MainFilePath);
-            IEnumerable<XElement> employees = tester.Root.Elements();
-            Console.WriteLine("Employee Names: ");
-            foreach(var employee in employees)
-            {
-                Console.WriteLine(employee.Element("Name").Value);
-            }
-            Console.WriteLine("</TESTING>");
-            */
-
-
-
+            //</XML testing>
 
             //basic console setup
             Console.Title = "Music Player";

@@ -19,11 +19,11 @@ namespace MusicPlayer
         {
             //splits the string given to the function every time there is a space
             string[] splitInput = input.Split(" ");
-            string command = splitInput[0];
+            string command = splitInput[0].ToLower();
             string[] args = new string[splitInput.Length - 1];
             for(int x = 0; x <=(splitInput.Length-1); x++)
             {
-                args[x] = splitInput[x+1];
+                args[x] = splitInput[x+1].ToLower();
             }
             switch (command)
             {
@@ -47,7 +47,7 @@ namespace MusicPlayer
                     }
                     else
                     {
-                        switch(args[0])
+                        switch(args[0].ToLower())
                         {
                             case "stop":
                             Console.WriteLine("Stops the music playing");
