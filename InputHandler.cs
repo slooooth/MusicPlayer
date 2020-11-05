@@ -90,9 +90,17 @@ namespace MusicPlayer
                 inputDirectory = Console.ReadLine();
                 if(Directory.Exists(inputDirectory) == false)
                 {
-                    Console.WriteLine("not a vaild directory on this machine");
-                    Console.WriteLine("Please enter a directory: ");
-                }
+                    if(inputDirectory.ToLower() == "stop" || inputDirectory.ToLower() == "quit")
+                    {
+                        Console.WriteLine("Get Directory halted. Execution stopping.");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.WriteLine("not a vaild directory on this machine");
+                        Console.WriteLine("Please enter a directory: ");
+                    }
+                } 
             }
             return inputDirectory;
         }

@@ -56,12 +56,6 @@ namespace MusicPlayer
             Console.Title = "Music Player";
             Console.WriteLine("Current date and time:" + " " + DateTime.Now);
 
-            //random path variables for testing writing to a file
-            //string path = @"D:\Code Testing Files\";
-            //string fileName = "test.txt";
-            //string fullPath = path + fileName;
-            //File.WriteAllText(fullPath, "test");
-
             MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
             //attempt to play a file (It's on my local PC so likely won't exist on other machines)
             try
