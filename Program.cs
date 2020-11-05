@@ -21,7 +21,10 @@ namespace MusicPlayer
                 {
                     throw new FileNotFoundException("That file does not exist");
                 }
-                Console.WriteLine("file found");
+                else
+                {
+                    Console.WriteLine("file found");
+                } 
             }
             catch (FileNotFoundException)
             {
