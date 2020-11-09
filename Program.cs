@@ -11,12 +11,15 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\test12.xml"; 
+        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\main.xml"; 
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
 
-            //<XML testing>
+            //program initialization
+            Console.Title = "Music Player";
+            Console.WriteLine("Current date and time:" + " " + DateTime.Now);
+
             try
             {
                 if(File.Exists(MainFilePath) == false)
@@ -44,17 +47,14 @@ namespace MusicPlayer
                 Console.WriteLine(e);
                 return;
             }
-            //</XML testing>
+            //end init
 
+            /*
             XDocument test2 = XDocument.Load(MainFilePath);
             //test2.Load(MainFilePath);
             test2.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("test"));
             test2.Save(MainFilePath);
-
-
-            //basic console setup
-            Console.Title = "Music Player";
-            Console.WriteLine("Current date and time:" + " " + DateTime.Now);
+            */
 
             MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
             //attempt to play a file (It's on my local PC so likely won't exist on other machines)
