@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NAudio.Wave;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace MusicPlayer
 {
@@ -43,6 +45,12 @@ namespace MusicPlayer
                 return;
             }
             //</XML testing>
+
+            XDocument test2 = XDocument.Load(MainFilePath);
+            //test2.Load(MainFilePath);
+            test2.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("test"));
+            test2.Save(MainFilePath);
+
 
             //basic console setup
             Console.Title = "Music Player";
