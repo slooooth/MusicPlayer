@@ -60,13 +60,20 @@ namespace MusicPlayer
                             Console.WriteLine("del - deletes a playlist, args - playlist name to remove");
                             Console.WriteLine("add - adds a specified track to a playlist, args - playlist to add track to, path of track to be added");
                             Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
-                            Console.WriteLine("list or nothing - lists all availible playlists, args - none");
+                            Console.WriteLine("list/nothing - lists all availible playlists, args - none");
                             break;
                             case "play":
                             Console.WriteLine("plays either a given track or a playlist");
                             Console.WriteLine("options:");
-                            Console.WriteLine("track - plays a specific track, args - the name of a track OR the track file path");
+                            Console.WriteLine("track - plays a specific track, args - the name of a track in library OR the track file path");
                             Console.WriteLine("playlist - plays a specific playlist, args - track name or number in playlist. If left blank, plays the first song");
+                            Console.WriteLine("all - plays all the music in the library, starting from the top, args - none");
+                            break;
+                            case "library":
+                            Console.WriteLine("Works with your music library");
+                            Console.WriteLine("Options:");
+                            Console.WriteLine("add - adds a track to the library, args - the track's file path");
+                            Console.WriteLine("del - deletes a song from the library, args - song ID or name");
                             break;
                         }
                     }
