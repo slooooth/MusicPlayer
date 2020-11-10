@@ -47,6 +47,7 @@ namespace MusicPlayer
                 Console.WriteLine(e);
                 return;
             }
+            MusicFiles.PlaylistManager(new string[] {"new","test2"});
             //end init
 
             /*

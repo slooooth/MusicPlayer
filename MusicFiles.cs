@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace MusicPlayer
 {
@@ -41,11 +42,23 @@ namespace MusicPlayer
         public static void PlaylistManager(string[] actions)
         {
             string playlistName = actions[1];
+            XDocument xdoc = XDocument.Load(Program.MainFilePath);
             switch(actions[0])
             {
+                //XDocument xdoc = XDocument.Load(Program.MainFilePath);
                 case "new":
+                    //if(xdoc.XPathSelectElement
+                    xdoc.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("Playlist", new XAttribute("name", playlistName)));
                     break;
                 case "del":
+                    try
+                    {
+                        (xdoc.Element(playlistName).Remove());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("That playlist does not exist");
+                    }
                     break;
                 case "add":
                     break; 
@@ -55,6 +68,7 @@ namespace MusicPlayer
                     Console.WriteLine("not a vaild option");
                     break;
             }
+            xdoc.Save(Program.MainFilePath);
         }
     }
 }
