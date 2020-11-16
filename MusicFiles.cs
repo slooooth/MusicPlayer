@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using System.Linq;
 
 namespace MusicPlayer
 {
@@ -47,13 +48,20 @@ namespace MusicPlayer
             {
                 //XDocument xdoc = XDocument.Load(Program.MainFilePath);
                 case "new":
-                    //if(xdoc.XPathSelectElement
-                    xdoc.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("Playlist", new XAttribute("name", playlistName)));
+                    if(xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']") != null)
+                    {
+                        Console.WriteLine("this playlist already exists");
+                    }
+                    else
+                    {
+                        xdoc.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("Playlist", new XAttribute("name", playlistName)));
+                        Console.WriteLine($"Playlist with name {playlistName} was created");
+                    }
                     break;
                 case "del":
                     try
                     {
-                        (xdoc.Element(playlistName).Remove());
+                        //(xdoc.Element(playlistName).Remove());
                     }
                     catch
                     {

@@ -11,7 +11,7 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\main.xml"; 
+        public static string MainFilePath = @"C:\Users\Genr8or\Desktop\main.xml";
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
@@ -22,20 +22,18 @@ namespace MusicPlayer
 
             try
             {
-                if(File.Exists(MainFilePath) == false)
+                if (File.Exists(MainFilePath) == false)
                 {
                     throw new FileNotFoundException("That file does not exist");
                 }
                 else
                 {
-                    Console.WriteLine("file found");
-                } 
+                    Console.WriteLine("Library file found!");
+                }
             }
             catch (FileNotFoundException)
             {
-                
-                //File.Create(MainFilePath);
-                Console.WriteLine("file created");
+                Console.WriteLine("no library file was found, and a new one was created");
                 XDocument test = new XDocument(
                     new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists"))
                 );
@@ -46,7 +44,7 @@ namespace MusicPlayer
                 Console.WriteLine("Unknown exception. Execution stopping");
                 Console.WriteLine(e);
                 return;
-            }
+            } 
             MusicFiles.PlaylistManager(new string[] {"new","test2"});
             //end init
 
