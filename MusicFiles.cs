@@ -61,7 +61,18 @@ namespace MusicPlayer
                 case "del":
                     try
                     {
-                        //(xdoc.Element(playlistName).Remove());
+                        xdoc.XPathSelectElement("MusicPlayerData/Playlists/Playlist[@name='{playlistName}']");
+                        Console.WriteLine($"are you sure you want to delete {playlistName}? (y/n)");
+                        string ans = Console.ReadLine().ToLower();
+                        if(ans == "y")
+                        {
+                            xdoc.XPathSelectElement("MusicPlayerData/Playlists)").Remove("Playlist[@name='{playlistName}']");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Delete cancelled");
+                        }
+
                     }
                     catch
                     {
@@ -69,6 +80,18 @@ namespace MusicPlayer
                     }
                     break;
                 case "add":
+                    try
+                    {
+                        /*
+                        xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']")
+                        .Add(new XElement("Name"), new XElement(""));
+                        */
+
+                    }
+                    catch
+                    {
+                        Console.WriteLine("playlist does not exist. please try again");
+                    }
                     break; 
                 case "rm":
                     break;
