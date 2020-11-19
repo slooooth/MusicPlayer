@@ -34,9 +34,7 @@ namespace MusicPlayer
             catch (FileNotFoundException)
             {
                 Console.WriteLine("no library file was found, and a new one was created");
-                XDocument test = new XDocument(
-                    new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists"))
-                );
+                XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists")));
                 test.Save(MainFilePath);
             }
             catch (Exception e)

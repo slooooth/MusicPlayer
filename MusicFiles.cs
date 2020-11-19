@@ -46,7 +46,6 @@ namespace MusicPlayer
             XDocument xdoc = XDocument.Load(Program.MainFilePath);
             switch(actions[0])
             {
-                //XDocument xdoc = XDocument.Load(Program.MainFilePath);
                 case "new":
                     if(xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']") != null)
                     {
@@ -66,7 +65,7 @@ namespace MusicPlayer
                         string ans = Console.ReadLine().ToLower();
                         if(ans == "y")
                         {
-                            xdoc.XPathSelectElement("MusicPlayerData/Playlists)").Remove("Playlist[@name='{playlistName}']");
+                            xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}'").Remove();
                         }
                         else
                         {
