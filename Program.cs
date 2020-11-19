@@ -33,7 +33,7 @@ namespace MusicPlayer
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("no library file was found, and a new one was created");
+                Console.WriteLine($"no library file was found, and a new one was created (Located at {MainFilePath})");
                 XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists")));
                 test.Save(MainFilePath);
             }

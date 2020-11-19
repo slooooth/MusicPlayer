@@ -60,7 +60,7 @@ namespace MusicPlayer
                 case "del":
                     try
                     {
-                        xdoc.XPathSelectElement("MusicPlayerData/Playlists/Playlist[@name='{playlistName}']");
+                        xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']");
                         Console.WriteLine($"are you sure you want to delete {playlistName}? (y/n)");
                         string ans = Console.ReadLine().ToLower();
                         if(ans == "y")
