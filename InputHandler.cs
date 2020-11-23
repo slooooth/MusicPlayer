@@ -92,20 +92,20 @@ namespace MusicPlayer
         {
             Console.WriteLine("Please enter a directory: ");
             string inputDirectory = null;
-            while(Directory.Exists(inputDirectory) == false)
+            while(Directory.Exists(inputDirectory) == false && File.Exists(inputDirectory) == false)
             {
                 inputDirectory = Console.ReadLine();
-                if(Directory.Exists(inputDirectory) == false)
+                if(Directory.Exists(inputDirectory) == false && File.Exists(inputDirectory) == false)
                 {
                     if(inputDirectory.ToLower() == "stop" || inputDirectory.ToLower() == "quit")
                     {
                         Console.WriteLine("Get Directory halted. Execution stopping.");
-                        Environment.Exit(0);
+                        Environment.Exit(1);
                     }
                     else
                     {
-                        Console.WriteLine("not a vaild directory on this machine");
-                        Console.WriteLine("Please enter a directory: ");
+                        Console.WriteLine("not a vaild directory or file on this machine");
+                        Console.WriteLine("Please enter a directory or file: ");
                     }
                 } 
             }

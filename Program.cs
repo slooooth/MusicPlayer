@@ -33,9 +33,24 @@ namespace MusicPlayer
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine($"no library file was found, and a new one was created (Located at {MainFilePath})");
-                XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists")));
-                test.Save(MainFilePath);
+                Console.WriteLine("no library file was found, please enter where one is located, or where you would like a new one to be created)");
+                MainFilePath = InputHandler.GetDirectory();
+                if(File.Exists(MainFilePath) == true)
+                {
+                    Console.WriteLine("Library file found!");
+                }
+                else if(Directory.Exists(MainFilePath) == true)
+                {
+                    Console.WriteLine($"A new library file is being created at {MainFilePath}");
+                    XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists")));
+                    test.Save(MainFilePath);
+                    Console.WriteLine("Library file created successfully");
+                }
+                else
+                {
+                    Console.WriteLine("An unknown error occured");
+                    Environment.Exit(2);
+                }
             }
             catch (Exception e)
             {
@@ -43,7 +58,7 @@ namespace MusicPlayer
                 Console.WriteLine(e);
                 return;
             } 
-            MusicFiles.PlaylistManager(new string[] {"new","test2"});
+            //MusicFiles.PlaylistManager(new string[] {"new","test2"});
             //end init
 
             /*
@@ -53,7 +68,7 @@ namespace MusicPlayer
             test2.Save(MainFilePath);
             */
 
-            MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
+            //MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
             //attempt to play a file (It's on my local PC so likely won't exist on other machines)
             try
             {
