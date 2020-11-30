@@ -18,7 +18,7 @@ namespace MusicPlayer
 
             //program initialization
             Console.Title = "Music Player";
-            Console.WriteLine("Current date and time:" + " " + DateTime.Now);
+            Console.WriteLine($"Current date and time: {DateTime.Now}");
 
             try
             {
@@ -33,7 +33,7 @@ namespace MusicPlayer
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("no library file was found, please enter where one is located, or where you would like a new one to be created)");
+                Console.WriteLine("no library file was found, please enter where one is located, or where you would like a new one to be created");
                 MainFilePath = InputHandler.GetDirectory();
                 if(File.Exists(MainFilePath) == true)
                 {
