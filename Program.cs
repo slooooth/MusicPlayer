@@ -60,25 +60,7 @@ namespace MusicPlayer
             } 
             //MusicFiles.PlaylistManager(new string[] {"new","test2"});
             //end init
-
-            /*
-            XDocument test2 = XDocument.Load(MainFilePath);
-            //test2.Load(MainFilePath);
-            test2.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("test"));
-            test2.Save(MainFilePath);
-            */
-
-            //MusicFiles.GetMusicFiles(InputHandler.GetDirectory());
-            //attempt to play a file (It's on my local PC so likely won't exist on other machines)
-            try
-            {
-                MusicFilePlayer.PlayMP3File(@"D:\Downloads\Explore This (prod. WISHBOI).mp3");
-            }
-            catch
-            {
-                Console.WriteLine("Not a valid directory");
-            }
-            Console.ReadLine();
+            InputHandler.GetInput();
         
         }
     }
