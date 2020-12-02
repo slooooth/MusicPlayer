@@ -46,13 +46,19 @@ namespace MusicPlayer
             var wavReader = new WaveFileReader(file);
             waveOut.Init(wavReader);
             waveOut.Play();
+            double lastPercentComplete = 0;
             while(wavReader.CurrentTime != wavReader.TotalTime)
             {
-                string userInput = InputHandler.GetInput();
-                Console.WriteLine(userInput);
-                if(userInput != null && userInput != " ")
+                //ms version
+                //Console.Write($"{mp3Reader.CurrentTime}ms / {mp3Reader.TotalTime}ms");
+
+                //percentage version
+                double percentComplete = Math.Round((wavReader.CurrentTime/wavReader.TotalTime)*100, 0);
+                if(percentComplete != lastPercentComplete)
                 {
-                    break;
+                    lastPercentComplete = percentComplete;
+                    Console.SetCursorPosition(0, Console.CursorTop);
+                    Console.Write(percentComplete + "%");
                 }
             }
             Console.WriteLine("finished");
@@ -66,7 +72,7 @@ namespace MusicPlayer
         }
         public static void PlayFile(string file) //a more flexible play file function that can offload picking what type of player to use from the caller
         {
-            waveOut.stop();
+            waveOut.Stop();
             try
             {
                 string fileExtension = Path.GetExtension(file);
