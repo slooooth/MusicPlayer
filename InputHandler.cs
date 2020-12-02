@@ -16,8 +16,8 @@ namespace MusicPlayer
             string[] splitInput = input.Split(" ");
             string command = splitInput[0].ToLower();
             string[] args = new string[splitInput.Length - 1];
-            for(int x = 0; x <=(splitInput.Length-1); x++)
-            {
+            for(int x = 0; x < (splitInput.Length-1); x++)
+            { 
                 args[x] = splitInput[x+1].ToLower();
             }
             switch (command)
@@ -31,7 +31,14 @@ namespace MusicPlayer
                     break;
 
                 case "play":
-                    MusicFilePlayer.PlayFile(args[0]);
+                    try
+                    {
+                        MusicFilePlayer.PlayFile(args[0]);
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("Missing info. Try \"help play\"");
+                    }
                     break;
 
                 case "help":
@@ -75,7 +82,18 @@ namespace MusicPlayer
                     break;
 
                 case "playlist":
-                    MusicFiles.PlaylistManager(args);
+                    try
+                    {
+                        MusicFiles.PlaylistManager(args);
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("Missing info. Try \"help playlist\"");
+                    }
+                    
+                    break;
+                default:
+                    Console.WriteLine("that's not a valid command");
                     break;
                 
 
