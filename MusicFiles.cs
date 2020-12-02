@@ -11,6 +11,7 @@ namespace MusicPlayer
 {
     class MusicFiles
     {
+        public static List<string> q = new List<string>();
         //gets all the files from a requested directory
         public static List<string> GetMusicFiles(string filePath)
         {

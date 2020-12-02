@@ -62,9 +62,11 @@ namespace MusicPlayer
         public static void StopPlaying() //makes the output device stop playing whatever it's playing
         {
             waveOut.Stop();
+            Console.WriteLine("playback halted");
         }
         public static void PlayFile(string file) //a more flexible play file function that can offload picking what type of player to use from the caller
         {
+            waveOut.stop();
             try
             {
                 string fileExtension = Path.GetExtension(file);
@@ -85,6 +87,15 @@ namespace MusicPlayer
         public static void SkipTrack() //will skip the track playing
         {
             waveOut.Stop();
+            if(MusicFiles.q.Count == 0)
+            {
+                Console.WriteLine("There is no song in queue to skip to");
+            }
+            else 
+            {
+                MusicFiles.q.Remove(MusicFiles.q[0]);
+                PlayFile(MusicFiles.q[0]);
+            }
 
         }
     }
