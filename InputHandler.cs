@@ -9,15 +9,10 @@ namespace MusicPlayer
 {
     class InputHandler
     {
-        //will handle all inputs (I think this will help the program take inputs while functions are running/songs are playing)
-        public static string GetInput()
-        {
-            //just returns whatever the user inputs
-            return Console.ReadLine();
-        }
-        public static void ExecuteInput(string input)
+        public static void GetInput()
         {
             //splits the string given to the function every time there is a space
+            string input = Console.ReadLine();
             string[] splitInput = input.Split(" ");
             string command = splitInput[0].ToLower();
             string[] args = new string[splitInput.Length - 1];
