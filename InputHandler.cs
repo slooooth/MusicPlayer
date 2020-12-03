@@ -93,10 +93,10 @@ namespace MusicPlayer
                     
                     break;
                 default:
-                    Console.WriteLine("that's not a valid command");
+                    Console.WriteLine("that's not a valid command - try \"help\" for more information");
+                    GetInput();
                     break;
-                
-
+          
             }
         }
 
