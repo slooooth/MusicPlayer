@@ -64,7 +64,7 @@ namespace MusicPlayer
                                 Console.WriteLine("del - deletes a playlist, args - playlist name to remove");
                                 Console.WriteLine("add - adds a specified track to a playlist, args - playlist to add track to, path of track to be added");
                                 Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
-                                Console.WriteLine("list/nothing - lists all availible playlists, args - none");
+                                Console.WriteLine("list - lists all availible playlists, args - none");
                                 break;
                             case "play":
                                 Console.WriteLine("plays either a given track or a playlist");
@@ -78,6 +78,14 @@ namespace MusicPlayer
                                 Console.WriteLine("Options:");
                                 Console.WriteLine("add - adds a track to the library, args - the track's file path");
                                 Console.WriteLine("del - deletes a song from the library, args - song ID or name");
+                                break;
+                            case "list":
+                                Console.WriteLine("library - lists all tracks availible");
+                                Console.WriteLine("play - plays a track");
+                                Console.WriteLine("playlist - groups of tracks that can be played");
+                                Console.WriteLine("stop - stops the currently playing track");
+                                Console.WriteLine("use \"help [option]\" to learn more about an option");
+                                Console.WriteLine("quit - closes MusicPlayer");
                                 break;
                             default:
                                 Console.WriteLine("that isn't a valid command");
@@ -96,6 +104,10 @@ namespace MusicPlayer
                         Console.WriteLine("Missing info. Try \"help playlist\"");
                     }
                     
+                    break;
+                case "quit":
+                    Console.WriteLine("Stopping and closing MusicPlayer");
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine("that's not a valid command - try \"help\" for more information");;
