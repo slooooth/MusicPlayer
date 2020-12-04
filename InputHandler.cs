@@ -54,38 +54,33 @@ namespace MusicPlayer
                         switch(args[0].ToLower())
                         {
                             case "stop":
-                            Console.WriteLine("Stops the music playing");
-                            Console.WriteLine("options: none");
-                            GetInput();
-                            break;
+                                Console.WriteLine("Stops the music playing");
+                                Console.WriteLine("options: none");
+                                break;
                             case "playlist":
-                            Console.WriteLine("playlists allow you to group different tracks together");
-                            Console.WriteLine("Options:");
-                            Console.WriteLine("new - creates a new playlist, args - playlist name to be created");
-                            Console.WriteLine("del - deletes a playlist, args - playlist name to remove");
-                            Console.WriteLine("add - adds a specified track to a playlist, args - playlist to add track to, path of track to be added");
-                            Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
-                            Console.WriteLine("list/nothing - lists all availible playlists, args - none");
-                            GetInput();
-                            break;
+                                Console.WriteLine("playlists allow you to group different tracks together");
+                                Console.WriteLine("Options:");
+                                Console.WriteLine("new - creates a new playlist, args - playlist name to be created");
+                                Console.WriteLine("del - deletes a playlist, args - playlist name to remove");
+                                Console.WriteLine("add - adds a specified track to a playlist, args - playlist to add track to, path of track to be added");
+                                Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
+                                Console.WriteLine("list/nothing - lists all availible playlists, args - none");
+                                break;
                             case "play":
-                            Console.WriteLine("plays either a given track or a playlist");
-                            Console.WriteLine("options:");
-                            Console.WriteLine("track - plays a specific track, args - the name of a track in library OR the track file path");
-                            Console.WriteLine("playlist - plays a specific playlist, args - track name or number in playlist. If left blank, plays the first song");
-                            Console.WriteLine("all - plays all the music in the library, starting from the top, args - none");
-                            GetInput();
-                            break;
+                                Console.WriteLine("plays either a given track or a playlist");
+                                Console.WriteLine("options:");
+                                Console.WriteLine("track - plays a specific track, args - the name of a track in library OR the track file path");
+                                Console.WriteLine("playlist - plays a specific playlist, args - track name or number in playlist. If left blank, plays the first song");
+                                Console.WriteLine("all - plays all the music in the library, starting from the top, args - none");
+                                break;
                             case "library":
-                            Console.WriteLine("Works with your music library");
-                            Console.WriteLine("Options:");
-                            Console.WriteLine("add - adds a track to the library, args - the track's file path");
-                            Console.WriteLine("del - deletes a song from the library, args - song ID or name");
-                            GetInput();
-                            break;
+                                Console.WriteLine("Works with your music library");
+                                Console.WriteLine("Options:");
+                                Console.WriteLine("add - adds a track to the library, args - the track's file path");
+                                Console.WriteLine("del - deletes a song from the library, args - song ID or name");
+                                break;
                             default:
                                 Console.WriteLine("that isn't a valid command");
-                                GetInput();
                                 break;
                         }
                     }
@@ -104,10 +99,11 @@ namespace MusicPlayer
                     break;
                 default:
                     Console.WriteLine("that's not a valid command - try \"help\" for more information");
-                    GetInput();
+                    //GetInput();
                     break;
           
             }
+            GetInput();
         }
 
         //only should be used for init/setting up a new environment, as execution cannot be stopped until a vaild directory is given
