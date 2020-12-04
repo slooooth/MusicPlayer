@@ -98,8 +98,7 @@ namespace MusicPlayer
                     
                     break;
                 default:
-                    Console.WriteLine("that's not a valid command - try \"help\" for more information");
-                    //GetInput();
+                    Console.WriteLine("that's not a valid command - try \"help\" for more information");;
                     break;
           
             }
