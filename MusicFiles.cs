@@ -56,27 +56,31 @@ namespace MusicPlayer
                     {
                         xdoc.XPathSelectElement("MusicPlayerData/Playlists").Add(new XElement("Playlist", new XAttribute("name", playlistName)));
                         Console.WriteLine($"Playlist with name {playlistName} was created");
+                        SaveXML(xdoc);
                     }
                     break;
                 case "del":
-                    try
+                    if(xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']") != null)
                     {
-                        xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']");
                         Console.WriteLine($"are you sure you want to delete {playlistName}? (y/n)");
                         string ans = Console.ReadLine().ToLower();
                         if(ans == "y")
                         {
-                            xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}'").Remove();
+                            xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name='{playlistName}']").Remove();
+                            Console.WriteLine($"Playlist \"{playlistName}\" was deleted");
+                            SaveXML(xdoc);
                         }
                         else
                         {
                             Console.WriteLine("Delete cancelled");
+                            SaveXML(xdoc);
                         }
 
                     }
-                    catch
+                    else
                     {
                         Console.WriteLine("That playlist does not exist");
+                        SaveXML(xdoc);
                     }
                     break;
                 case "add":
@@ -99,7 +103,12 @@ namespace MusicPlayer
                     Console.WriteLine("not a vaild option");
                     break;
             }
+        }
+
+        public static void SaveXML(XDocument xdoc)
+        {
             xdoc.Save(Program.MainFilePath);
+            InputHandler.GetInput();
         }
     }
 }

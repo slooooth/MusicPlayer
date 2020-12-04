@@ -46,6 +46,8 @@ namespace MusicPlayer
                     {
                         Console.WriteLine("This is the help menu");
                         Console.WriteLine("usage: command [options] [arguments]");
+                        Console.WriteLine("use \"help list\" to get a list of all usable commands");
+                        GetInput();
                     }
                     else
                     {
@@ -54,6 +56,7 @@ namespace MusicPlayer
                             case "stop":
                             Console.WriteLine("Stops the music playing");
                             Console.WriteLine("options: none");
+                            GetInput();
                             break;
                             case "playlist":
                             Console.WriteLine("playlists allow you to group different tracks together");
@@ -63,6 +66,7 @@ namespace MusicPlayer
                             Console.WriteLine("add - adds a specified track to a playlist, args - playlist to add track to, path of track to be added");
                             Console.WriteLine("rm - removes a track from a playlist, args - playlist to remove track from, select track to be removed");
                             Console.WriteLine("list/nothing - lists all availible playlists, args - none");
+                            GetInput();
                             break;
                             case "play":
                             Console.WriteLine("plays either a given track or a playlist");
@@ -70,13 +74,19 @@ namespace MusicPlayer
                             Console.WriteLine("track - plays a specific track, args - the name of a track in library OR the track file path");
                             Console.WriteLine("playlist - plays a specific playlist, args - track name or number in playlist. If left blank, plays the first song");
                             Console.WriteLine("all - plays all the music in the library, starting from the top, args - none");
+                            GetInput();
                             break;
                             case "library":
                             Console.WriteLine("Works with your music library");
                             Console.WriteLine("Options:");
                             Console.WriteLine("add - adds a track to the library, args - the track's file path");
                             Console.WriteLine("del - deletes a song from the library, args - song ID or name");
+                            GetInput();
                             break;
+                            default:
+                                Console.WriteLine("that isn't a valid command");
+                                GetInput();
+                                break;
                         }
                     }
                     break;

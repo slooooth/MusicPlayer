@@ -69,6 +69,7 @@ namespace MusicPlayer
         {
             waveOut.Stop();
             Console.WriteLine("playback halted");
+            InputHandler.GetInput();
         }
         public static void PlayFile(string file) //a more flexible play file function that can offload picking what type of player to use from the caller
         {
@@ -88,6 +89,7 @@ namespace MusicPlayer
             catch
             {
                 Console.WriteLine("An error occured while attempting to play that file. Likely an invalid file type");
+                InputHandler.GetInput();
             }
         }
         public static void SkipTrack() //will skip the track playing
@@ -102,7 +104,7 @@ namespace MusicPlayer
                 MusicFiles.q.Remove(MusicFiles.q[0]);
                 PlayFile(MusicFiles.q[0]);
             }
-
+            InputHandler.GetInput();
         }
     }
 }
