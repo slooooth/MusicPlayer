@@ -85,10 +85,15 @@ namespace MusicPlayer
                 {
                     PlayWAVFile(file);
                 }
+                else 
+                {
+                    Console.WriteLine("Cannot play that file. (Likely in invalid file or invalid file type)");
+                }
             }
-            catch
+            catch (Exception e)
             {
-                Console.WriteLine("An error occured while attempting to play that file. Likely an invalid file type");
+                Console.WriteLine("An error occured while attempting to play that file. Likely an invalid file type or restricted file access");
+                Console.WriteLine($"Exception thrown: {e}");
                 InputHandler.GetInput();
             }
         }
