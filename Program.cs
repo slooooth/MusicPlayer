@@ -16,7 +16,6 @@ namespace MusicPlayer
         static void Main(string[] args)
         {
             XDocument xdoc = XDocument.Load(Program.MainFilePath);
-            xdoc.XPathSelectElement($"MusicPlayerData/Playlists/Playlist[@name=asdfaeqwefqw]");
             //program initialization
             Console.Title = "Music Player";
             Console.WriteLine($"Current date and time: {DateTime.Now}");
