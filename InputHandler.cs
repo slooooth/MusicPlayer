@@ -84,8 +84,8 @@ namespace MusicPlayer
                                 Console.WriteLine("play - plays a track");
                                 Console.WriteLine("playlist - groups of tracks that can be played");
                                 Console.WriteLine("stop - stops the currently playing track");
-                                Console.WriteLine("use \"help [option]\" to learn more about an option");
                                 Console.WriteLine("quit - closes MusicPlayer");
+                                Console.WriteLine("use \"help [option]\" to learn more about an option");
                                 break;
                             default:
                                 Console.WriteLine("that isn't a valid command");
