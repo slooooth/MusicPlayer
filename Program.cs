@@ -15,7 +15,6 @@ namespace MusicPlayer
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
-            XDocument xdoc = XDocument.Load(Program.MainFilePath);
             //program initialization
             Console.Title = "Music Player";
             Console.WriteLine($"Current date and time: {DateTime.Now}");
@@ -45,7 +44,8 @@ namespace MusicPlayer
                     else if (Directory.Exists(MainFilePath) == true)
                     {
                         Console.WriteLine($"Attempting to create file at: {MainFilePath}");
-                        XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library"), new XElement("Playlists")));
+                        XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("LibraryPath", new XAttribute("path", @"C:\Users\gagnonl\Desktop"),
+                        new XElement("Library")), new XElement("Playlists")));
                         try
                         {
                             test.Save(MainFilePath);
