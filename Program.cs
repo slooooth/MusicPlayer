@@ -11,7 +11,7 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"C:\Users\gagnonl\Desktop\main.xml";
+        public static string MainFilePath = @"D:\Downloads\main.txt";
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
@@ -29,6 +29,7 @@ namespace MusicPlayer
                 {
                     Console.WriteLine("Library file found!");
                     MainFileFound = true;
+                    InputHandler.GetInput();
                 }
             }
             catch (FileNotFoundException)
@@ -40,6 +41,7 @@ namespace MusicPlayer
                     if (File.Exists(MainFilePath) == true)
                     {
                         Console.WriteLine("Library file found!");
+                        MainFileFound = true;
                     }
                     else if (Directory.Exists(MainFilePath) == true)
                     {
@@ -48,13 +50,15 @@ namespace MusicPlayer
                         new XElement("Library")), new XElement("Playlists")));
                         try
                         {
-                            test.Save(MainFilePath);
+                            test.Save(Path.Combine(MainFilePath,"main.txt"));
                             Console.WriteLine("Library file created successfully");
                             MainFileFound = true;
+                            MainFilePath = Path.Combine(MainFilePath, "main.txt");
                         }
-                        catch (UnauthorizedAccessException)
+                        catch (UnauthorizedAccessException e)
                         {
                             Console.WriteLine("This program is not authorized to access that location. Please try again");
+                            Console.WriteLine(e);
                         }
                     }
                     else
