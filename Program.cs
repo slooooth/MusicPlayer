@@ -50,23 +50,25 @@ namespace MusicPlayer
                             Console.WriteLine("A library file already exists in this location, and MusicPlayer will use that file");
                             MainFileFound = true;
                             MainFilePath = Path.Combine(MainFilePath, "main.xml");
-                            break;
                         }
-                        Console.WriteLine($"Attempting to create file at: {MainFilePath}");
-                        XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("LibraryPath", new XAttribute("path", @"C:\Users\gagnonl\Desktop"),
-                        new XElement("Library")), new XElement("Playlists")));
-                        try
+                        else
                         {
-                            test.Save(Path.Combine(MainFilePath,"main.xml"));
-                            Console.WriteLine("Library file created successfully");
-                            MainFileFound = true;
-                            MainFilePath = Path.Combine(MainFilePath, "main.xml");
-                        }
-                        catch (UnauthorizedAccessException e)
-                        {
-                            Console.WriteLine("This program is not authorized to access that location. Please try again");
-                            Console.WriteLine(e);
-                        }
+                            Console.WriteLine($"Attempting to create file at: {MainFilePath}");
+                            XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("LibraryPath", new XAttribute("path", @"C:\Users\gagnonl\Desktop"),
+                            new XElement("Library")), new XElement("Playlists")));
+                            try
+                            {
+                                test.Save(Path.Combine(MainFilePath,"main.xml"));
+                                Console.WriteLine("Library file created successfully");
+                                MainFileFound = true;
+                                MainFilePath = Path.Combine(MainFilePath, "main.xml");
+                            }
+                            catch (UnauthorizedAccessException e)
+                            {
+                                Console.WriteLine("This program is not authorized to access that location. Please try again");
+                                Console.WriteLine(e);
+                            }
+                        } 
                     }
                     else
                     {
