@@ -115,6 +115,25 @@ namespace MusicPlayer
             }
         }
 
+        public static void LibraryManager(string[] actions)
+        {
+            XDocument xdoc =  XDocument.Load(Program.MainFilePath);
+            switch(actions[0])
+            {
+                case "get":
+                    if(Directory.Exists(Program.MainFilePath) == false)
+                    {
+                        GetMusicFiles(actions[1]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("this option does not allow arguments");
+                        SaveXML(xdoc);
+                    }
+                    break;
+            }
+        }
+
         public static void SaveXML(XDocument xdoc)
         {
             xdoc.Save(Program.MainFilePath);

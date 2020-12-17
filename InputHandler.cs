@@ -74,6 +74,9 @@ namespace MusicPlayer
                                 Console.WriteLine("Options:");
                                 Console.WriteLine("add - adds a track to the library, args - the track's file path");
                                 Console.WriteLine("del - deletes a song from the library, args - song ID or name");
+                                Console.WriteLine("get - lists all tracks in the library");
+                                Console.WriteLine("getpath - lists the path of the library");
+                                Console.WriteLine("setpath - sets the path of the library");
                                 break;
                             case "list":
                                 Console.WriteLine("library - lists all tracks availible");
@@ -104,6 +107,8 @@ namespace MusicPlayer
                 case "quit":
                     Console.WriteLine("Stopping and closing MusicPlayer");
                     Environment.Exit(0);
+                    break;
+                case "library":
                     break;
                 default:
                     Console.WriteLine("that's not a valid command - try \"help\" for more information");;
