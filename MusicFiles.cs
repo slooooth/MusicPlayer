@@ -40,6 +40,19 @@ namespace MusicPlayer
 
         }
 
+        public static bool GetMainFile(string dirPath)
+        {
+            string[] files = Directory.GetFiles(dirPath);
+            foreach(string file in files)
+            {
+                if(Path.GetFileName(file) == "main.xml")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         //function that can be called to work with playlists residing in XML file (unfinished)
         public static void PlaylistManager(string[] actions)
         {

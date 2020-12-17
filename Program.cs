@@ -11,7 +11,7 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"D:\Downloads\main.txt";
+        public static string MainFilePath = @"D:\Downloads\main.xml";
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
@@ -45,15 +45,22 @@ namespace MusicPlayer
                     }
                     else if (Directory.Exists(MainFilePath) == true)
                     {
+                        if(MusicFiles.GetMainFile(MainFilePath) == true)
+                        {
+                            Console.WriteLine("A library file already exists in this location, and MusicPlayer will use that file");
+                            MainFileFound = true;
+                            MainFilePath = Path.Combine(MainFilePath, "main.xml");
+                            break;
+                        }
                         Console.WriteLine($"Attempting to create file at: {MainFilePath}");
                         XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("LibraryPath", new XAttribute("path", @"C:\Users\gagnonl\Desktop"),
                         new XElement("Library")), new XElement("Playlists")));
                         try
                         {
-                            test.Save(Path.Combine(MainFilePath,"main.txt"));
+                            test.Save(Path.Combine(MainFilePath,"main.xml"));
                             Console.WriteLine("Library file created successfully");
                             MainFileFound = true;
-                            MainFilePath = Path.Combine(MainFilePath, "main.txt");
+                            MainFilePath = Path.Combine(MainFilePath, "main.xml");
                         }
                         catch (UnauthorizedAccessException e)
                         {
