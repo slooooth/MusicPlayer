@@ -142,7 +142,9 @@ namespace MusicPlayer
                 {
                     if(inputDirectory.ToLower() == "stop" || inputDirectory.ToLower() == "quit")
                     {
-                        Console.WriteLine("Get Directory halted. Execution stopping.");
+                        Console.WriteLine("MusicPlayer cannot run without a main file");
+                        Console.WriteLine("Press any key to exit...");
+                        Console.ReadKey();
                         Environment.Exit(1);
                     }
                     else
