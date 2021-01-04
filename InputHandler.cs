@@ -84,7 +84,16 @@ namespace MusicPlayer
                                 Console.WriteLine("playlist - groups of tracks that can be played");
                                 Console.WriteLine("stop - stops the currently playing track");
                                 Console.WriteLine("quit - closes MusicPlayer");
+                                Console.WriteLine("clear - clears the console window");
                                 Console.WriteLine("use \"help [option]\" to learn more about an option");
+                                break;
+                            case "quit":
+                                Console.WriteLine("closes MusicPlayer");
+                                Console.WriteLine("options: none");
+                                break;
+                            case "clear":
+                                Console.WriteLine("clear - clears the display console");
+                                Console.WriteLine("options: none");
                                 break;
                             default:
                                 Console.WriteLine("that isn't a valid command");
@@ -109,6 +118,9 @@ namespace MusicPlayer
                     Environment.Exit(0);
                     break;
                 case "library":
+                    break;
+                case "clear":
+                    Console.Clear();
                     break;
                 default:
                     Console.WriteLine("that's not a valid command - try \"help\" for more information");;
