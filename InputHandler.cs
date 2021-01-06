@@ -85,6 +85,7 @@ namespace MusicPlayer
                                 Console.WriteLine("stop - stops the currently playing track");
                                 Console.WriteLine("quit - closes MusicPlayer");
                                 Console.WriteLine("clear - clears the console window");
+                                Console.WriteLine("path - displays main file path");
                                 Console.WriteLine("use \"help [option]\" to learn more about an option");
                                 break;
                             case "quit":
@@ -93,6 +94,10 @@ namespace MusicPlayer
                                 break;
                             case "clear":
                                 Console.WriteLine("clear - clears the display console");
+                                Console.WriteLine("options: none");
+                                break;
+                            case "path":
+                                Console.WriteLine("path - displays the current main file path");
                                 Console.WriteLine("options: none");
                                 break;
                             default:
@@ -121,6 +126,9 @@ namespace MusicPlayer
                     break;
                 case "clear":
                     Console.Clear();
+                    break;
+                case "path":
+                    Console.WriteLine(Program.MainFilePath);
                     break;
                 default:
                     Console.WriteLine("that's not a valid command - try \"help\" for more information");;
