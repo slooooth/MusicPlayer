@@ -50,8 +50,8 @@ namespace MusicPlayer
                         else
                         {
                             Console.WriteLine($"Attempting to create file at: {MainFilePath}");
-                            XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("LibraryPath", new XAttribute("path", @"C:\Users\gagnonl\Desktop"),
-                            new XElement("Library")), new XElement("Playlists")));
+                            XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library", new XAttribute("path", @"C:\Users\gagnonl\Desktop")), 
+                            new XElement("Playlists")));
                             try
                             {
                                 test.Save(Path.Combine(MainFilePath,"main.xml"));
