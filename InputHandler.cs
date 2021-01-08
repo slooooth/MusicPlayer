@@ -123,6 +123,14 @@ namespace MusicPlayer
                     Environment.Exit(0);
                     break;
                 case "library":
+                    try
+                    {
+                        MusicFiles.LibraryManager(args);
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("Missing info. Try \"help library\"");
+                    }
                     break;
                 case "clear":
                     Console.Clear();

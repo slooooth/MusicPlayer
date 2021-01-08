@@ -131,6 +131,20 @@ namespace MusicPlayer
                         SaveXML(xdoc);
                     }
                     break;
+                case "add":
+                    break;
+                case "del":
+                    break;
+                case "getpath":
+                    //I know this is a janky way to do this and there is probably a far better way, but it works for now
+                    var path = xdoc.XPathSelectElement("MusicPlayerData/Library").Attribute("path").ToString();
+                    string[] printPath = path.Split("\"");
+                    Console.WriteLine(printPath[1]);
+                    SaveXML(xdoc);
+                    break;
+                case "setpath":
+
+                    break;
             }
         }
 
