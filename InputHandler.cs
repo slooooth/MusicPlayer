@@ -86,6 +86,7 @@ namespace MusicPlayer
                                 Console.WriteLine("quit - closes MusicPlayer");
                                 Console.WriteLine("clear - clears the console window");
                                 Console.WriteLine("path - displays main file path");
+                                Console.WriteLine("color - change colors");
                                 Console.WriteLine("use \"help [option]\" to learn more about an option");
                                 break;
                             case "quit":
@@ -100,13 +101,21 @@ namespace MusicPlayer
                                 Console.WriteLine("path - displays the current main file path");
                                 Console.WriteLine("options: none");
                                 break;
+                            case "color":
+                                Console.WriteLine("works with the display colors");
+                                Console.WriteLine("options:");
+                                Console.WriteLine("text/txt/t - changes text colors");
+                                Console.WriteLine("background/bg/back/b - changes background colors");
+                                Console.WriteLine("reset/default/clear - resets colors to white text, black background");
+                                Console.WriteLine("both bg and txt take one argument of a color");
+                                Console.WriteLine("Availible colors are - grey, yellow, red, blue, cyan, white, black, purple, green");
+                                break;
                             default:
                                 Console.WriteLine("that isn't a valid command");
                                 break;
                         }
                     }
                     break;
-
                 case "playlist":
                     try
                     {
@@ -137,6 +146,113 @@ namespace MusicPlayer
                     break;
                 case "path":
                     Console.WriteLine(Program.MainFilePath);
+                    break;
+                case "color":
+                    switch(args[0])
+                    {
+                        case "text":
+                            switch(args[1])
+                            {
+                                case "blue":
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Clear();
+                                    break;
+                                case "black":
+                                    Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.Clear();
+                                    break;
+                                case "green":
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Clear();
+                                    break;
+                                case "purple":
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                    Console.Clear();
+                                    break;
+                                case "red":
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Clear();
+                                    break;
+                                case "yellow":
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Clear();
+                                    break;
+                                case "white":
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.Clear();
+                                    break;
+                                case "grey":
+                                case "gray":
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.Clear();
+                                    break;
+                                case "cyan":
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.Clear();
+                                    break;
+                                default:
+                                    Console.WriteLine("Color is either missing or not availible");
+                                    break;
+                            }
+                            break;
+                        case "back":
+                        case "background":
+                        case "bg":
+                            switch (args[1])
+                            {
+                                case "blue":
+                                    Console.BackgroundColor = ConsoleColor.Blue;
+                                    Console.Clear();
+                                    break;
+                                case "black":
+                                    Console.BackgroundColor = ConsoleColor.Black;
+                                    Console.Clear();
+                                    break;
+                                case "green":
+                                    Console.BackgroundColor = ConsoleColor.Green;
+                                    Console.Clear();
+                                    break;
+                                case "purple":
+                                    Console.BackgroundColor = ConsoleColor.Magenta;
+                                    Console.Clear();
+                                    break;
+                                case "red":
+                                    Console.BackgroundColor = ConsoleColor.Red;
+                                    Console.Clear();
+                                    break;
+                                case "yellow":
+                                    Console.BackgroundColor = ConsoleColor.Yellow;
+                                    Console.Clear();
+                                    break;
+                                case "white":
+                                    Console.BackgroundColor = ConsoleColor.White;
+                                    Console.Clear();
+                                    break;
+                                case "grey":
+                                case "gray":
+                                    Console.BackgroundColor = ConsoleColor.Gray;
+                                    Console.Clear();
+                                    break;
+                                case "cyan":
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.Clear();
+                                    break;
+                                default:
+                                    Console.WriteLine("Color is either missing or not availible");
+                                    break;
+                            }
+                            break;
+                        case "default":
+                        case "clear":
+                        case "reset":
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.Clear();
+                            break;
+                        default:
+                            Console.WriteLine("Missing info");
+                            break;
+                    }
                     break;
                 default:
                     Console.WriteLine("that's not a valid command - try \"help\" for more information");;
