@@ -151,6 +151,8 @@ namespace MusicPlayer
                     switch(args[0])
                     {
                         case "text":
+                        case "txt":
+                        case "t":
                             switch(args[1])
                             {
                                 case "blue":
@@ -198,6 +200,7 @@ namespace MusicPlayer
                         case "back":
                         case "background":
                         case "bg":
+                        case "b":
                             switch (args[1])
                             {
                                 case "blue":
