@@ -291,5 +291,16 @@ namespace MusicPlayer
             }
             return inputDirectory;
         }
+        public static bool ValidDirectory(string dir)
+        {
+            if(Directory.Exists(dir) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

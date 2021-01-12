@@ -143,7 +143,20 @@ namespace MusicPlayer
                     SaveXML(xdoc);
                     break;
                 case "setpath":
-
+                    if(InputHandler.ValidDirectory(actions[1]) == true)
+                    {
+                        xdoc.XPathSelectElement("MusicPlayerData/Library").Attribute("path").Value = actions[1];
+                        Console.WriteLine($"library path was set to {actions[1]}");
+                        SaveXML(xdoc);
+                    }
+                    else if (InputHandler.ValidDirectory(actions[1]) == false)
+                    {
+                        Console.WriteLine("that's not a valid directory");
+                    }
+                    else
+                    {
+                        Console.WriteLine("an unknown error occured");
+                    }
                     break;
             }
         }
