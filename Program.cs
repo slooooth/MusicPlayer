@@ -17,15 +17,27 @@ namespace MusicPlayer
             bool MainFileFound = false;
             try
             {
-                if (File.Exists(MainFilePath) == false)
-                {
-                    throw new FileNotFoundException("That file does not exist");
-                }
-                else
+                if (File.Exists(MainFilePath) == true)
                 {
                     Console.WriteLine("Library file found!");
                     MainFileFound = true;
                     InputHandler.GetInput();
+                    throw new FileNotFoundException("That file does not exist");
+                }
+                else if (Directory.Exists(MainFilePath) == true)
+                {
+                    string testPath = Path.Combine(MainFilePath + "\\main.xml");
+                    if (File.Exists(testPath) == true)
+                    {
+                        Console.WriteLine("Library file found!");
+                        MainFilePath = testPath;
+                        MainFileFound = true;
+                        InputHandler.GetInput();
+                    }
+                }
+                else
+                {
+                    throw new FileNotFoundException("No main file located");
                 }
             }
             catch (FileNotFoundException)
