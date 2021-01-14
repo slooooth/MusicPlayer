@@ -7,7 +7,7 @@ namespace MusicPlayer
 {
     class Program
     {
-        public static string MainFilePath = @"D:\Downloads\main.xml";
+        public static string MainFilePath = @"C:";
         //working on slowly factoring out much of this code. really main should only quickly check for pre-existing libraries, and then hand execution to something else
         static void Main(string[] args)
         {
