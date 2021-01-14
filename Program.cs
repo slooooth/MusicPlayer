@@ -34,6 +34,24 @@ namespace MusicPlayer
                         MainFileFound = true;
                         InputHandler.GetInput();
                     }
+                    else
+                    {
+                        Console.WriteLine($"Attempting to create file at: {MainFilePath}");
+                        XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library", new XAttribute("path", @"C:\Users\gagnonl\Desktop")), 
+                        new XElement("Playlists")));
+                        try
+                        {
+                            test.Save(Path.Combine(MainFilePath,"main.xml"));                                
+                            Console.WriteLine("Library file created successfully");
+                            MainFileFound = true;
+                            MainFilePath = Path.Combine(MainFilePath, "main.xml");
+                        }
+                        catch (UnauthorizedAccessException e)
+                        {
+                            Console.WriteLine("This program is not authorized to access that location. Please try again");
+                            Console.WriteLine(e);
+                        }
+                    }
                 }
                 else
                 {
