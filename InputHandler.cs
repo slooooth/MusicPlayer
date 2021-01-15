@@ -132,6 +132,7 @@ namespace MusicPlayer
                     Environment.Exit(0);
                     break;
                 case "library":
+                case "lib":
                 case "lb":
                 case "l":
                     try
