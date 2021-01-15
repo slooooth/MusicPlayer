@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
@@ -54,6 +55,14 @@ namespace MusicPlayer
         public static void PlaylistManager(string[] actions)
         {
             string playlistName = actions[1];
+            try
+            {
+                XDocument xtest = XDocument.Load(Program.MainFilePath);
+            }
+            catch (XmlException)
+            {
+                XMLFail();
+            }
             XDocument xdoc = XDocument.Load(Program.MainFilePath);
             switch(actions[0])
             {
@@ -117,6 +126,14 @@ namespace MusicPlayer
 
         public static void LibraryManager(string[] actions)
         {
+            try
+            {
+                XDocument xtest =  XDocument.Load(Program.MainFilePath);
+            }
+            catch
+            {
+                XMLFail();
+            }
             XDocument xdoc =  XDocument.Load(Program.MainFilePath);
             switch(actions[0])
             {
@@ -132,6 +149,8 @@ namespace MusicPlayer
                     }
                     break;
                 case "add":
+                    xdoc.XPathSelectElement("MusicPlayerData/Library").Add(new XElement("Track", new XElement("name", "testname"), new XElement("path", "c:")));
+                    SaveXML(xdoc);
                     break;
                 case "del":
                     break;
@@ -165,6 +184,16 @@ namespace MusicPlayer
         {
             xdoc.Save(Program.MainFilePath);
             InputHandler.GetInput();
+        }
+
+        public static void XMLFail()
+        {
+            Console.WriteLine("Warning: XML failure");
+            Console.WriteLine("Your XML File might be corrupt");
+            Console.WriteLine("Please run MusicPlayerRepair");
+            Console.WriteLine("Press any key to exit MusicPlayer.....");
+            Console.ReadKey();
+            Environment.Exit(3);
         }
     }
 }
