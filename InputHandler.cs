@@ -150,6 +150,64 @@ namespace MusicPlayer
                 case "path":
                     Console.WriteLine(Program.MainFilePath);
                     break;
+                case "main":
+                    switch(args[0])
+                    {
+                        case "set":
+                            try
+                            {
+                                if(File.Exists(args[1]) == true && Path.GetExtension(args[1]) == ".xml")
+                                {
+                                    Console.WriteLine("Warning! Using an invalid XML file may cause MusicPlayer to become unstable!");
+                                    Console.WriteLine("Please use a MusicPlayer-created XML file");
+                                    Console.WriteLine("Are you sure you want to continue? y/n");
+                                    string answer = Console.ReadLine();
+                                    if(answer.ToLower() == "y")
+                                    {
+                                        Program.MainFilePath = args[1];
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("main file switch aborted");
+                                    }
+                                }
+                                else
+                                {
+                                    TestPath = Path.Combine(args[1], "\\main.xml");
+                                    if(File.Exists(TestPath) == true)
+                                    {
+                                        Console.WriteLine($"A possible file was found at {TestPath}");
+                                        Console.WriteLine($"would you like to use it?");
+                                        string answer = Console.ReadLine();
+                                        if(answer.ToLower() == "y")
+                                        {
+                                            Console.WriteLine("Warning! Using an invalid XML file may cause MusicPlayer to become unstable!");
+                                            Console.WriteLine("Please use a MusicPlayer-created XML file");
+                                            Console.WriteLine("Are you sure you want to continue? y/n");
+                                            string answer = Console.ReadLine();
+                                            if(answer.ToLower() == "y")
+                                            {
+                                                Program.MainFilePath = args[1];
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("main file switch aborted");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("please try again");
+                                        }
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                Console.WriteLine("A path is required");
+                            }
+                            break;
+                    }
+                    break;
                 case "color":
                     switch(args[0])
                     {
