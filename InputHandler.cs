@@ -173,13 +173,14 @@ namespace MusicPlayer
                                 }
                                 else
                                 {
+                                    string TestPath = Console.ReadLine();
                                     TestPath = Path.Combine(args[1], "\\main.xml");
                                     if(File.Exists(TestPath) == true)
                                     {
                                         Console.WriteLine($"A possible file was found at {TestPath}");
                                         Console.WriteLine($"would you like to use it?");
-                                        string answer = Console.ReadLine();
-                                        if(answer.ToLower() == "y")
+                                        string check = Console.ReadLine();
+                                        if(check.ToLower() == "y")
                                         {
                                             Console.WriteLine("Warning! Using an invalid XML file may cause MusicPlayer to become unstable!");
                                             Console.WriteLine("Please use a MusicPlayer-created XML file");
