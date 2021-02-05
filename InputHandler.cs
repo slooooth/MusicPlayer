@@ -87,6 +87,8 @@ namespace MusicPlayer
                                 Console.WriteLine("clear - clears the console window");
                                 Console.WriteLine("path - displays main file path");
                                 Console.WriteLine("color - change colors");
+                                Console.WriteLine("main - works with MusicPlayer's main file");
+                                Console.WriteLine("backup - creates a backup copy of MusicPlayer's main file");
                                 Console.WriteLine("use \"help [option]\" to learn more about an option");
                                 break;
                             case "quit":
@@ -109,6 +111,17 @@ namespace MusicPlayer
                                 Console.WriteLine("reset/default/clear - resets colors to white text, black background");
                                 Console.WriteLine("both bg and txt take one argument of a color");
                                 Console.WriteLine("Availible colors are - grey, yellow, red, blue, cyan, white, black, purple, green");
+                                break;
+                            case "main":
+                                Console.WriteLine("works with MusicPlayer's main file");
+                                Console.WriteLine("options:");
+                                Console.WriteLine("set - set's the path to a main file (warning - misuse of this command can cause instability)");
+                                Console.WriteLine("new - creates an empty new main file");
+                                break;
+                            case "backup":
+                                Console.WriteLine("creates a backup of MusicPlayer's current main file");
+                                Console.WriteLine("options:");
+                                Console.WriteLine("blank/path - where you want the backup to go. if left blank, goes to the default location");
                                 break;
                             default:
                                 Console.WriteLine("that isn't a valid command");

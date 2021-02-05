@@ -241,6 +241,70 @@ namespace MusicPlayer
                         Console.WriteLine("A path is required");
                     }
                     break;
+                case "new":
+                    try
+                    {
+                        if(File.Exists(args[1]) == true)
+                        {
+                            Console.WriteLine($"A main file already exists at {args[1]}");
+                            Console.WriteLine("Are you sure you want to overwrite it? y/n");
+                            string answer = Console.ReadLine();
+                            if(answer.ToLower() == "y")
+                            {
+                                if(MainFileCreate(args[1]) == true)
+                                {
+                                    return;
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No main file created");
+                            }
+                        }
+                        else if(GetMainFile(args[1]) == true)
+                        {
+                            string realMain = Path.Combine(args[1], "main.xml");
+                            Console.WriteLine($"A main file already exists at {realMain}");
+                            Console.WriteLine("Are you sure you want to overwrite it? y/n");
+                            string answer = Console.ReadLine();
+                            if(answer.ToLower() == "y")
+                            {
+                                if(MainFileCreate(realMain) == true)
+                                {
+                                    return;
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("No main file created");
+                            }
+                        }
+                        else
+                        {
+                            string finishedPath = Path.Combine(args[1], "main.xml");
+                            if(MainFileCreate(finishedPath) == true)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("An error occured (likely an invalid path)");
+                    }
+                    break;
             }
         }
 
@@ -304,6 +368,29 @@ namespace MusicPlayer
             return;
         }
 
+
+        public static bool MainFileCreate(string path)
+        {
+            Console.WriteLine($"Attempting to create file at: {path}");
+            XDocument test = new XDocument(new XElement("MusicPlayerData", new XElement("Library", new XAttribute("path", @"C:\Users\gagnonl\Desktop")), 
+            new XElement("Playlists")));
+            try
+            {
+                test.Save(path);                                
+                Console.WriteLine($"Main file created successfully at {path}");
+                return true;
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine($"This program is not authorized to access the location {path}");
+                return false;
+            }
+            catch
+            {
+                Console.WriteLine("An unknown error occured, and no main file was created");
+                return false;
+            }
+        }
         public static void SaveXML(XDocument xdoc)
         {
             xdoc.Save(Program.MainFilePath);
