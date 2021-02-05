@@ -7,6 +7,7 @@ using System.Xml.XPath;
 
 namespace MusicPlayer
 {
+    //class or file for all things relating to local files
     class MusicFiles
     {
         public static List<string> q = new List<string>();
@@ -178,6 +179,129 @@ namespace MusicPlayer
                     }
                     break;
             }
+        }
+
+        public static void MainFileManager(string[] args) //function used for things relating to the location of the main file
+        {
+            switch(args[0])
+            {
+                case "set":
+                    try
+                    {
+                        if(File.Exists(args[1]) == true && Path.GetExtension(args[1]) == ".xml")
+                        {
+                            Console.WriteLine("Warning! Using an invalid XML file may cause MusicPlayer to become unstable!");
+                            Console.WriteLine("Please use a MusicPlayer-created XML file");
+                            Console.WriteLine("Are you sure you want to continue? y/n");
+                            string answer = Console.ReadLine();
+                            if(answer.ToLower() == "y")
+                            {
+                                Program.MainFilePath = args[1];
+                                Console.WriteLine($"Main file changed to {args[1]}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("main file switch aborted");
+                            }
+                        }
+                        else
+                        {
+                            string TestPath;
+                            TestPath = Path.Combine(args[1], "main.xml");
+                            if(File.Exists(TestPath) == true)
+                            {
+                                Console.WriteLine($"A possible file was found at {TestPath}");
+                                Console.WriteLine($"would you like to use it? y/n");
+                                string check = Console.ReadLine();
+                                if(check.ToLower() == "y")
+                                {
+                                    Console.WriteLine("Warning! Using an invalid XML file may cause MusicPlayer to become unstable!");
+                                    Console.WriteLine("Please use a MusicPlayer-created XML file");
+                                    Console.WriteLine("Are you sure you want to continue? y/n");
+                                    string answer = Console.ReadLine();
+                                    if(answer.ToLower() == "y")
+                                    {
+                                        Program.MainFilePath = TestPath;
+                                        Console.WriteLine($"Main file was set to {TestPath}");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("main file switch aborted");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("please try again");
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("A path is required");
+                    }
+                    break;
+            }
+        }
+
+        public static void BackupMain(string[] actions) //function to make a backup copy of a main file
+        {
+            string MainFileDir = Path.GetDirectoryName(Program.MainFilePath);
+            string savingPath = Path.Combine(MainFileDir, "main_backup.xml"); 
+            if(actions[0] == "")
+            {
+                try
+                {
+                    File.Copy(Program.MainFilePath, savingPath);
+                    Console.WriteLine($"File backed up successfully at {savingPath}"); 
+                }
+                catch(IOException)
+                {
+                    Console.WriteLine($"the file {savingPath} already exists");
+                    Console.WriteLine("Would you like to replace it?");
+                    string answer = Console.ReadLine();
+                    if(answer.ToLower() == "y")
+                    {
+                        File.Copy(Program.MainFilePath, savingPath, true);
+                        Console.WriteLine($"File backed up successfully at {savingPath}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("File was not overwritten");
+                    }
+                }
+            }
+            else
+            {
+                if(Directory.Exists(actions[0]) == true)
+                {
+                    savingPath = Path.Combine(actions[0], "main_backup.xml");
+                    if(File.Exists(savingPath) == true)
+                    {
+                        Console.WriteLine($"The file {savingPath} already exists. Would you like to overwrite it? (y/n)");
+                        string answer = Console.ReadLine();
+                        if(answer == "y")
+                        {
+                            File.Copy(Program.MainFilePath, savingPath, true);
+                            Console.WriteLine($"File backed up successfully at {savingPath}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("File was not overwritten");
+                        }
+                    }
+                    else
+                    {
+                        File.Copy(Program.MainFilePath, savingPath);
+                        Console.WriteLine($"File backed up successfully at {savingPath}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Input path was not a valid path");
+                }
+            }
+            return;
         }
 
         public static void SaveXML(XDocument xdoc)
